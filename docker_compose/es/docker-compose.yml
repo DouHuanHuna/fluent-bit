@@ -1,0 +1,16 @@
+services:
+  elasticsearch:
+    image: elasticsearch:8.7.1
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+#      - xpack.security.http.ssl.enabled=false
+    ports:
+      - "9200:9200"
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+        reservations:
+          memory: 1g
