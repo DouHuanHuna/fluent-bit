@@ -967,7 +967,7 @@ function getAllSrcFiles(_path: string) {
 
         const files = entries
             .filter(
-                /* filter files mismatch .c |.cpp |.cxx */
+                /* filter_parser files mismatch .c |.cpp |.cxx */
                 file =>
                     !file.isDirectory() && file.name.match('(.c|.cpp|.cxx)$')
             )

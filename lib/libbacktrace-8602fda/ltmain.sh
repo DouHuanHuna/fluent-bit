@@ -7252,17 +7252,17 @@ EOF
 	fi
 
 	if test "X$skipped_export" != "X:" && test -n "$orig_export_symbols"; then
-	  # The given exports_symbols file has to be filtered, so filter it.
+	  # The given exports_symbols file has to be filtered, so filter_parser it.
 	  func_verbose "filter symbol list for \`$libname.la' to tag DATA exports"
-	  # FIXME: $output_objdir/$libname.filter potentially contains lots of
+	  # FIXME: $output_objdir/$libname.filter_parser potentially contains lots of
 	  # 's' commands which not all seds can handle. GNU sed should be fine
-	  # though. Also, the filter scales superlinearly with the number of
+	  # though. Also, the filter_parser scales superlinearly with the number of
 	  # global variables. join(1) would be nice here, but unfortunately
 	  # isn't a blessed tool.
-	  $opt_dry_run || $SED -e '/[ ,]DATA/!d;s,\(.*\)\([ \,].*\),s|^\1$|\1\2|,' < $export_symbols > $output_objdir/$libname.filter
+	  $opt_dry_run || $SED -e '/[ ,]DATA/!d;s,\(.*\)\([ \,].*\),s|^\1$|\1\2|,' < $export_symbols > $output_objdir/$libname.filter_parser
 	  delfiles="$delfiles $export_symbols $output_objdir/$libname.filter"
 	  export_symbols=$output_objdir/$libname.def
-	  $opt_dry_run || $SED -f $output_objdir/$libname.filter < $orig_export_symbols > $export_symbols
+	  $opt_dry_run || $SED -f $output_objdir/$libname.filter_parser < $orig_export_symbols > $export_symbols
 	fi
 
 	tmp_deplibs=
@@ -7496,17 +7496,17 @@ EOF
 	    fi
 
 	    if test -n "$orig_export_symbols"; then
-	      # The given exports_symbols file has to be filtered, so filter it.
+	      # The given exports_symbols file has to be filtered, so filter_parser it.
 	      func_verbose "filter symbol list for \`$libname.la' to tag DATA exports"
-	      # FIXME: $output_objdir/$libname.filter potentially contains lots of
+	      # FIXME: $output_objdir/$libname.filter_parser potentially contains lots of
 	      # 's' commands which not all seds can handle. GNU sed should be fine
-	      # though. Also, the filter scales superlinearly with the number of
+	      # though. Also, the filter_parser scales superlinearly with the number of
 	      # global variables. join(1) would be nice here, but unfortunately
 	      # isn't a blessed tool.
-	      $opt_dry_run || $SED -e '/[ ,]DATA/!d;s,\(.*\)\([ \,].*\),s|^\1$|\1\2|,' < $export_symbols > $output_objdir/$libname.filter
+	      $opt_dry_run || $SED -e '/[ ,]DATA/!d;s,\(.*\)\([ \,].*\),s|^\1$|\1\2|,' < $export_symbols > $output_objdir/$libname.filter_parser
 	      delfiles="$delfiles $export_symbols $output_objdir/$libname.filter"
 	      export_symbols=$output_objdir/$libname.def
-	      $opt_dry_run || $SED -f $output_objdir/$libname.filter < $orig_export_symbols > $export_symbols
+	      $opt_dry_run || $SED -f $output_objdir/$libname.filter_parser < $orig_export_symbols > $export_symbols
 	    fi
 	  fi
 

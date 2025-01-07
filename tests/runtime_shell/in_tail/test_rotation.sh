@@ -141,7 +141,7 @@ test_single_static_rotation() {
     ${_ASSERT_EQUALS_} $write_lines $read_lines
 
     # Validate our database files has only one remaining entry per database file
-    #sqlite_check $TEST_DIR "$logfile.db" $FLB_PID
+    #sqlite_check $TEST_DIR "$logfile.input_db" $FLB_PID
 
     # Stop Fluent Bit (SIGTERM)
     kill -15 $FLB_PID
@@ -241,7 +241,7 @@ test_truncate() {
     # Check we processed same number of records
     ${_ASSERT_EQUALS_} $write_lines $read_lines
 
-    sqlite_check $TEST_DIR a.db $FLB_PID
+    sqlite_check $TEST_DIR a.input_db $FLB_PID
 
     # Stop Fluent Bit (SIGTERM)
     kill -15 $FLB_PID
@@ -353,7 +353,7 @@ test_rotate_link() {
     ${_ASSERT_EQUALS_} $write_lines $read_lines
 
     # Check that database file have the right offset and mark the file as rotated
-    sqlite_check $TEST_DIR a.db $FLB_PID
+    sqlite_check $TEST_DIR a.input_db $FLB_PID
 
     # Stop Fluent Bit (SIGTERM)
     kill -15 $FLB_PID
@@ -511,7 +511,7 @@ test_database_resume() {
     # Stop Fluent Bit (SIGTERM)
     kill -15 $FLB_PID
 
-    sqlite3 $TEST_DIR/logs.db "SELECT * FROM in_tail_files"
+    sqlite3 $TEST_DIR/logs.input_db "SELECT * FROM in_tail_files"
     exit 0
 
     sleep 2

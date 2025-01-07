@@ -9,7 +9,7 @@ test_report_*.json
 test_suite_*.json
 .\#*
 *.pyc
-# sqlite3 db:
+# sqlite3 input_db:
 rdktests
 *.log
 *.png

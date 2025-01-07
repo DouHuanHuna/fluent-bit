@@ -19,9 +19,22 @@ data:
     @INCLUDE stdout-kubernetes.conf
     [Input]
         Name    tail
-        Path    /var/log/applogs/*/*error*.log,/var/log/applogs/*/*/*error*.log,/var/log/accesslogs/*/*error*.log,/var/log/accesslogs/*/*/*error*.log,/var/log/applogs/satellite-*/*error*.log.*,/var/log/accesslogs/satellite-*/*error*.log.*
+        Path
+
+    /var/log/applogs/*/*error*.log,
+    /var/log/applogs/*/*/*error*.log,
+    /var/log/accesslogs/*/*error*.log,
+    /var/log/accesslogs/*/*/*error*.log,
+    /var/log/applogs/satellite-*/*error*.log.*,
+    /var/log/accesslogs/satellite-*/*error*.log.*
+
         Path_Key    file
-        Exclude_Path    *trace*T*.log,*.gz,*.zip, */gc.log, */gc-*.log
+        Exclude_Path
+    *trace*T*.log,
+    *.gz,
+    *.zip,
+    */gc.log,
+    */gc-*.log
         Refresh_Interval    20
         Rotate_Wait    10
         Buffer_Chunk_Size 32k
@@ -35,9 +48,25 @@ data:
         Tag    kelog.*
     [Input]
         Name    tail
-        Path    /var/log/applogs/*/*.log,/var/log/applogs/*/*/*.log,/var/log/accesslogs/*/*.log,/var/log/accesslogs/*/*/*.log,/var/log/applogs/satellite-*/*.log.*,/var/log/accesslogs/satellite-*/*.log.*
+        Path
+
+    /var/log/applogs/*/*.log,
+    /var/log/applogs/*/*/*.log,
+    /var/log/accesslogs/*/*.log,
+    /var/log/accesslogs/*/*/*.log,
+    /var/log/applogs/satellite-*/*.log.*,
+    /var/log/accesslogs/satellite-*/*.log.*
+
         Path_Key    file
-        Exclude_Path    *trace*T*.log,*.gz,*.zip, */gc.log, */gc-*.log, *error*
+        Exclude_Path
+    
+    *trace*T*.log,
+    *.gz,
+    *.zip,
+    */gc.log,
+    */gc-*.log,
+    *error*
+
         Storage.type   filesystem
         Refresh_Interval    20
         Rotate_Wait    10
@@ -50,6 +79,7 @@ data:
         Mem_Buf_Limit    1500MB
         Parser    any
         Tag    kelog.*
+
     [Filter]
         Name    parser
         Match    kelog.*
@@ -130,7 +160,28 @@ data:
     [INPUT]
         Name              tail
         Path              /var/log/containers/*.log
-        Exclude_Path      *bird-exporter*, *calico*, *cfs*, *clean-logs*, *infra-loki*, *kms-agent*, *node-exporter*, *dns*, *fluent*, *dajing*, *default-http*, *kruise*, *s3-rm*, *chaosblade*, *csi-cbs*, *ip-masq*, *kube-proxy*, *node-problem-detector*, *qos-agent*, *serf-agent*, *tke*
+        Exclude_Path
+    *bird-exporter*,
+    *calico*,
+    *cfs*,
+    *clean-logs*,
+    *infra-loki*,
+    *kms-agent*,
+    *node-exporter*,
+    *dns*,
+    *fluent*,
+    *dajing*,
+    *default-http*,
+    *kruise*,
+    *s3-rm*,
+    *chaosblade*,
+    *csi-cbs*,
+    *ip-masq*,
+    *kube-proxy*,
+    *node-problem-detector*,
+    *qos-agent*,
+    *serf-agent*,
+    *tke*
         Refresh_Interval  20
         Rotate_Wait       10
         Ignore_Older      30m
@@ -194,7 +245,7 @@ kind: ConfigMap
 metadata:
   annotations:
     kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"v1","data":{"fluent-bit.conf":"[Service]\n    Daemon    false\n    Flush    5\n    Http_Listen    0.0.0.0\n    Http_Port    2022\n    Http_ServerOn\n    Log_Level    info\n    Parsers_File    /fluent-bit/config/parsers.conf\n    Plugins_File    /fluent-bit/config/plugins.conf\n    Storage.path    /var/log/flb-storage/\n    Storage.sync              normal\n    Storage.checksum          off\n    Storage.max_chunks_up     128\n    Storage.backlog.mem_limit 12M\n    Buffer_Workers 6\n@INCLUDE stdout-kubernetes.conf\n[Input]\n    Name    tail\n    Path    /var/log/applogs/*/*error*.log,/var/log/applogs/*/*/*error*.log,/var/log/accesslogs/*/*error*.log,/var/log/accesslogs/*/*/*error*.log,/var/log/applogs/satellite-*/*error*.log.*,/var/log/accesslogs/satellite-*/*error*.log.*\n    Path_Key    file\n    Exclude_Path  *trace*T*.log,*.gz,*.zip, */gc.log, */gc-*.log\n    Refresh_Interval    20\n    Rotate_Wait    10\n    Buffer_Chunk_Size 32k\n    Buffer_Max_Size 64k\n    Ignore_Older   30m\n    Skip_Long_Lines    true\n    Read_from_Head false\n    DB    /var/log/flb_ke_tail.db\n    Mem_Buf_Limit    100MB\n    Multiline.Parser   java\n    Tag    kelog.*\n[Input]\n    Name    tail\n    Path    /var/log/applogs/*/*.log,/var/log/applogs/*/*/*.log,/var/log/accesslogs/*/*.log,/var/log/accesslogs/*/*/*.log,/var/log/applogs/satellite-*/*.log.*,/var/log/accesslogs/satellite-*/*.log.*\n    Path_Key    file\n    Exclude_Path    *trace*T*.log,*.gz,*.zip, */gc.log, */gc-*.log, *error*\n    Storage.type   filesystem\n    Refresh_Interval    20\n    Rotate_Wait    10\n    Ignore_Older    30m\n    Buffer_Chunk_Size 64k\n    Buffer_Max_Size 132k\n    Skip_Long_Lines    true\n    Read_from_Head false\n    DB    /var/log/flb_ke_tail.db\n    Mem_Buf_Limit    1500MB\n    Parser    any\n    Tag    kelog.*\n[Filter]\n    Name    parser\n   Match    kelog.*\n    Key_Name    file\n    Parser    k8s\n    Preserve_Key    true\n    Reserve_Data    true\n[Filter]\n    Name lua\n    Match kelog.*\n    call update_tag\n    script /opt/loki-logs-filter/main.lua\n    protected_mode true\n[Filter]\n    Name          rewrite_tag\n    Match         kelog.*\n    Rule          $lokitag .*  to.loki.$lokitag false\n    Emitter_Name  re_emitted\n    Emitter_Storage.type filesystem\n    Emitter_Mem_Buf_Limit 5G\n[FILTER]\n    Name record_modifier\n    Match to.loki.*\n    Remove_key lokitag\n[Output]\n    Name    fast\n    Match    kelog.*\n    Default_Topics    k8s-cloud-log-online\n    Default_Cluster    dig-all\n    Backend    file:///opt/fast/rules.json\n    Tag_Prefix    kelog.var.log.applogs., kelog.var.log.accesslogs.\n    Regex_Parser    (?P\u003cservice_id\u003e[a-z0-9](?:[-a-z0-9]*[a-z0-9])?(?:[a-z0-9]([-a-z0-9]*[a-z0-9])?)*)\\_(?P\u003cservice_group\u003e[a-z0-9](?:[-a-z0-9]*[a-z0-9])?(?:[a-z0-9]([-a-z0-9]*[a-z0-9])?)*)\\_(?P\u003cpod_name\u003e[a-z0-9](?:[-a-z0-9]*[a-z0-9])?(?:[a-z0-9]([-a-z0-9]*[a-z0-9])?)*)\\_(?P\u003cpod_namespace\u003e[a-z0-9](?:[-a-z0-9]*[a-z0-9])+)\\_(?P\u003ccontainer_name\u003e[a-z0-9](?:[-z-z0-9]*[a-z0-9])+)\\.(?P\u003cfile\u003e.*)\n    Cluster_Config_File    /opt/fast/config.json\n    Workers    6\n    Storage.total_limit_size 5G\n[Output]\n    Name   forward\n    Alias   grafana-loki\n    Match   to.loki.*\n    Host    127.0.0.1\n    Port    5140\n    Workers 12\n    Net.connect_timeout   20\n    Storage.total_limit_size 5G\n","parsers.conf":"[PARSER]\n    Name    docker\n    Format    json\n    Time_Key    time\n    Time_Format    %Y-%m-%dT%H:%M:%S.%L\n    Time_Keep    true\n[PARSER]\n    Name    java-multiline\n    Format    regex\n    Regex    /^(?\u003ctime\u003e\\d{4}-\\d{1,2}-\\d{1,2} \\d{1,2}:\\d{1,2}:\\d{1,2}) \\[(?\u003cthread\u003e.*)\\](?\u003clevel\u003e[^\\s]+)(?\u003cmessage\u003e.*)/\n    Time_Key    time\n    Time_Format    %Y-%m-%d %H:%M:%S\n[PARSER]\n    Name    nginx\n    Format    regex\n    Regex    ^(?\u003cremote\u003e[^ ]*) (?\u003chost\u003e[^ ]*) (?\u003cuser\u003e[^ ]*) \\[(?\u003ctime\u003e[^\\]]*)\\] \"(?\u003cmethod\u003e\\S+)(?: +(?\u003cpath\u003e[^\"]*?)(?: +\\S*)?)?\" (?\u003ccode\u003e[^ ]*) (?\u003csize\u003e[^ ]*)(?: \"(?\u003creferer\u003e[^\"]*)\" \"(?\u003cagent\u003e[^\"]*)\")\n    Time_Key    time\n    Time_Format    %Y-%m-%d %H:%M:%S\n[PARSER]\n    Name    k8s\n    Format    regex\n    Regex    (?\u003cservice_id\u003e[^\\/_]+)_(?\u003cservice_group\u003e[^\\/_]+)_(?\u003cpod_name\u003e[^\\/_]+)_(?\u003cpod_namespace\u003e[^\\/_]+)_(?\u003ccontainer_name\u003e[^\\/_]+)\n[PARSER]\n    Name    any\n    Format    regex\n    Regex    .+\nTime_Key    time\n    Time_Format    %Y-%m-%d %H:%M:%S\n","plugins.conf":"[PLUGINS]\n    Path /fluent-bit/bin/out_fast.so","stdout-kubernetes.conf":"[INPUT]\n    Name          tail\n    Path              /var/log/containers/*.log\n    Exclude_Path      *bird-exporter*, *calico*, *cfs*, *clean-logs*, *infra-loki*, *kms-agent*, *node-exporter*, *dns*, *fluent*, *dajing*, *default-http*, *kruise*, *s3-rm*, *chaosblade*, *csi-cbs*, *ip-masq*, *kube-proxy*, *node-problem-detector*, *qos-agent*, *serf-agent*, *tke*\n    Refresh_Interval  20\n    Rotate_Wait       10\n    Ignore_Older      30m\n    Skip_Long_Lines   true\n    Read_from_Head    false\n    DB                /var/log/flb_ke_tail.db\n    Mem_Buf_Limit     100MB\n    Parser            docker\n    Tag               kube.*\n[FILTER]\n    Name                kubernetes\n    Match            kube.*\n    Kube_URL            https://kubernetes.default.svc:443\n    Kube_CA_File        /var/run/secrets/kubernetes.io/serviceaccount/ca.crt\n    Kube_Token_File     /var/run/secrets/kubernetes.io/serviceaccount/token\n    Kube_Tag_Prefix     kube.var.log.containers.\n    Use_Kubelet         true\n    Kubelet_Port        10250\n    Kubelet_Host        ${KUBELET_HOST}\n    Merge_Log           Off\n    Buffer_Size         10MB\n    Labels              On\n    Annotations         Off\n    K8S-Logging.Parser  Off\n    K8S-Logging.Exclude Off\n    tls.verify          Off\n[FILTER]\n    Name                nest\n    Match               kube.*\n    Operation      lift\n    Nested_under        kubernetes\n[FILTER]\n    Name                nest\n    Match               kube.*\n    Operation           lift\n    Nested_under    labels\n[FILTER]\n    Name record_modifier\n    Match kube.*\n    Record file terminal\n    Allowlist_key log\n    Allowlist_key pod_name\n    Allowlist_key namespace_name\n    Allowlist_key container_name\n    Allowlist_key service_group\n    Allowlist_key service_id\n[FILTER]\n    Name modify\n    Match kube.*\n    Rename namespace_name pod_namespace\n[Output]\n    Name    forward\n    Alias   grafana-kube-loki\n    Match   kube.*\n    Host    127.0.0.1\n    Port    5140\n    Workers 6\n    Net.connect_timeout   20\n    Storage.total_limit_size 5G\n"},"kind":"ConfigMap","metadata":{"annotations":{},"name":"sre-fluent-bit-config","namespace":"logging"}}
+
   managedFields:
     - apiVersion: v1
       fieldsType: FieldsV1

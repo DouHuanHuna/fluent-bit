@@ -1372,7 +1372,7 @@ func_lt_ver ()
 # Set a version string for this script.
 scriptversion=2015-10-07.11; # UTC
 
-# A portable, pluggable option parser for Bourne shell.
+# A portable, pluggable option parser_json for Bourne shell.
 # Written by Gary V. Vaughan, 2010
 
 # Copyright (C) 2010-2015 Free Software Foundation, Inc.
@@ -1407,7 +1407,7 @@ scriptversion=2015-10-07.11; # UTC
 #
 #   #!/bin/sh
 #   . relative/path/to/funclib.sh
-#   . relative/path/to/options-parser
+#   . relative/path/to/options-parser_json
 #   scriptversion=1.0
 #   func_options ${1+"$@"}
 #   eval set dummy "$func_options_result"; shift
@@ -1438,7 +1438,7 @@ scriptversion=2015-10-07.11; # UTC
 
 # You should override these variables in your script after sourcing this
 # file so that they reflect the customisations you have added to the
-# option parser.
+# option parser_json.
 
 # The usage line for option parsing errors and the start of '-h' and
 # '--help' output messages. You can embed shell variables for delayed
@@ -1680,7 +1680,7 @@ func_options ()
     done
 
     # Save modified positional parameters for caller.  As a top-level
-    # options-parser function we always need to set the 'func_options_result'
+    # options-parser_json function we always need to set the 'func_options_result'
     # variable (regardless the $_G_rc_options value).
     if $_G_rc_options; then
       func_options_result=$_G_res_var
@@ -1870,7 +1870,7 @@ func_validate_options ()
 ## ----------------- ##
 
 # This section contains the helper functions used by the rest of the
-# hookable option parser framework in ascii-betical order.
+# hookable option parser_json framework in ascii-betical order.
 
 
 # func_fatal_help ARG...
@@ -9820,17 +9820,17 @@ EOF
 	fi
 
 	if test : != "$skipped_export" && test -n "$orig_export_symbols"; then
-	  # The given exports_symbols file has to be filtered, so filter it.
+	  # The given exports_symbols file has to be filtered, so filter_parser it.
 	  func_verbose "filter symbol list for '$libname.la' to tag DATA exports"
-	  # FIXME: $output_objdir/$libname.filter potentially contains lots of
+	  # FIXME: $output_objdir/$libname.filter_parser potentially contains lots of
 	  # 's' commands, which not all seds can handle. GNU sed should be fine
-	  # though. Also, the filter scales superlinearly with the number of
+	  # though. Also, the filter_parser scales superlinearly with the number of
 	  # global variables. join(1) would be nice here, but unfortunately
 	  # isn't a blessed tool.
-	  $opt_dry_run || $SED -e '/[ ,]DATA/!d;s,\(.*\)\([ \,].*\),s|^\1$|\1\2|,' < $export_symbols > $output_objdir/$libname.filter
+	  $opt_dry_run || $SED -e '/[ ,]DATA/!d;s,\(.*\)\([ \,].*\),s|^\1$|\1\2|,' < $export_symbols > $output_objdir/$libname.filter_parser
 	  func_append delfiles " $export_symbols $output_objdir/$libname.filter"
 	  export_symbols=$output_objdir/$libname.def
-	  $opt_dry_run || $SED -f $output_objdir/$libname.filter < $orig_export_symbols > $export_symbols
+	  $opt_dry_run || $SED -f $output_objdir/$libname.filter_parser < $orig_export_symbols > $export_symbols
 	fi
 
 	tmp_deplibs=
@@ -10069,17 +10069,17 @@ EOF
 	    fi
 
 	    if test -n "$orig_export_symbols"; then
-	      # The given exports_symbols file has to be filtered, so filter it.
+	      # The given exports_symbols file has to be filtered, so filter_parser it.
 	      func_verbose "filter symbol list for '$libname.la' to tag DATA exports"
-	      # FIXME: $output_objdir/$libname.filter potentially contains lots of
+	      # FIXME: $output_objdir/$libname.filter_parser potentially contains lots of
 	      # 's' commands, which not all seds can handle. GNU sed should be fine
-	      # though. Also, the filter scales superlinearly with the number of
+	      # though. Also, the filter_parser scales superlinearly with the number of
 	      # global variables. join(1) would be nice here, but unfortunately
 	      # isn't a blessed tool.
-	      $opt_dry_run || $SED -e '/[ ,]DATA/!d;s,\(.*\)\([ \,].*\),s|^\1$|\1\2|,' < $export_symbols > $output_objdir/$libname.filter
+	      $opt_dry_run || $SED -e '/[ ,]DATA/!d;s,\(.*\)\([ \,].*\),s|^\1$|\1\2|,' < $export_symbols > $output_objdir/$libname.filter_parser
 	      func_append delfiles " $export_symbols $output_objdir/$libname.filter"
 	      export_symbols=$output_objdir/$libname.def
-	      $opt_dry_run || $SED -f $output_objdir/$libname.filter < $orig_export_symbols > $export_symbols
+	      $opt_dry_run || $SED -f $output_objdir/$libname.filter_parser < $orig_export_symbols > $export_symbols
 	    fi
 	  }
 
