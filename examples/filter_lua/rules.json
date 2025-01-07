@@ -1,0 +1,695 @@
+{
+  "global_rules": [
+    {
+      "cluster": "test-mars",
+      "topic": [
+        "ketrace-php-segment-test"
+      ],
+      "file_suffix_pattern": ".+trace_[0-9]+\\.log$"
+    },
+    {
+      "cluster": "test-mars",
+      "topic": [
+        "ketrace-php-segment-test"
+      ],
+      "file_suffix_pattern": ".+trace+\\.log$"
+    }
+  ],
+  "service_rules": {
+    "aggregate-pay": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5482"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/aggregate-pay/error.log",
+        "log_only": true,
+        "fast_match_type": true
+      },
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5482"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/aggregate-pay/all.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "aggregate-pay-manage": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5543"
+        ],
+        "file_suffix_pattern": "/data0/www/logs/aggregate-pay-manage/error.log",
+        "log_only": true,
+        "fast_match_type": true
+      },
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5543"
+        ],
+        "file_suffix_pattern": "/data0/www/logs/aggregate-pay-manage/all.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "aggregate-pay-task": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5529"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/aggregate-pay-task/error.log",
+        "log_only": true,
+        "fast_match_type": true
+      },
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5529"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/aggregate-pay-task/all.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "agile-channel": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5572"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "agile-employ": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-4899"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "agile-home": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5574"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "agile-insurance": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5332"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "agile-open-sdk": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-4898"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "alpha-pay-platform": null,
+    "api-easy-rent-contract": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5378"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log,/data0/www/applogs/sql.log,/data0/www/applogs/dubbo/dubbo-consumer.log,/data0/www/applogs/dubbo/dubbo-provider.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "api-easy-rent-intel-strategy": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5466"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      },
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5466"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/sql.log",
+        "log_only": true,
+        "fast_match_type": true
+      },
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5466"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/dubbo/dubbo-consumer.log",
+        "log_only": true,
+        "fast_match_type": true
+      },
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5466"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/dubbo/dubbo-provider.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "api-trusteeship-contract": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5058"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/test.api.trusteeship.contract.lianjia.com/all.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "arch-pipeline": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5113"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "asset-core-server": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-4986"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/legal_controller/????-??-??.?.log",
+        "log_only": true,
+        "fast_match_type": true
+      },
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-4986"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/????-??-??/infoLog.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "auto-eval": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5473"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/info.log",
+        "log_only": true,
+        "fast_match_type": true
+      },
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5473"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/info.log,/data0/www/applogs/error.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "basic-search-simulation": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5467"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/??????????/traffic.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "beihaojia-java-test1": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5250"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "beihaojia-web-client": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5270"
+        ],
+        "file_suffix_pattern": "/data0/www/logs/access.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "beijia-basic-core": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5489"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "beijia-clean-core": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5039"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "beijia-iot-device-access": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5220"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "beijia-iot-warehouse": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5222"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "beijia-private-domain": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5358"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "beijia-trade-access": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-4978"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/all.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "beijia-trade-engine": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-4979"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/all.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "beijia-transaction": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-4980"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/all.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "bhj-fedemo": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5266"
+        ],
+        "file_suffix_pattern": "/data0/www/logs/access.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "bianque-gpt": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5520"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/application.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "bianque-oneapi": null,
+    "bigdata-diaodu-statserver": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5288"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "bigdata-ide-plat": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5376"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/sql-slow.log",
+        "log_only": true,
+        "fast_match_type": true
+      },
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5376"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      },
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5376"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/sql.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "bigdata-monitor-plat": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5307"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/sql-slow.log",
+        "log_only": true,
+        "fast_match_type": true
+      },
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5307"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      },
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5307"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/sql.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "bk-chat-gpt": null,
+    "bk-penocony": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5240"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/error.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "bplus-consumption": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5075"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "cap-server": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5326"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/????-??-??/infoLog.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "cdp-strategy": null,
+    "chat-helper": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5357"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "cloud-application": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5148"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/cloud-application/application.access-??????????.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "cloud-argus": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5298"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/spring.????-??-??.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "cloud-fast": null,
+    "cloud-godemo": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-4489"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/path9.log",
+        "log_only": true,
+        "fast_match_type": true
+      },
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-4489"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/path8.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "cloud-log": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-4859"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/pathab.log",
+        "log_only": true,
+        "fast_match_type": true
+      },
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-4859"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/path1.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "cloud-platform": null,
+    "cloud-workorder": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-75"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/333.log",
+        "log_only": true,
+        "fast_match_type": true
+      },
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-75"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/111.log",
+        "log_only": true,
+        "fast_match_type": true
+      },
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-75"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/path1.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "common-ci": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5422"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "common-data-transport": null,
+    "content-service": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5339"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "decoration-c-marketing": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5086"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app_info-??????????.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "dig-human": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5007"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/app.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "dwh-achilles": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5011"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/api.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "dwh-bicopilot": null,
+    "dwh-heimdallr": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5035"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/api.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "dwh-seabed": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5041"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/api.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "ehr-business-role-admin": null,
+    "ehr-uc-snapshot": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5499"
+        ],
+        "file_suffix_pattern": "/data0/www/applogs/test3-uc-snapshot/ehr-uc-snapshot.error.????-??-??.log,/data0/www/applogs/test3-uc-snapshot/ehr-uc-snapshot.info.????-??-??.log",
+        "log_only": true,
+        "fast_match_type": true
+      }
+    ],
+    "empapp-huaqiao-server": [
+      {
+        "cluster": "test-mars-04",
+        "topic": [
+          "topic-cloud-test-5461"
+        ],
+        "file_suffix_pattern":"/data0/www/applogs/????-??-??/infoLog.log","log_only":true,"fast_match_type":true}],"ershou-c-ai":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5405"],"file_suffix_pattern":"/data0/www/applogs/app_error-??????????.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5405"],"file_suffix_pattern":"/data0/www/applogs/app_info-??????????.log","log_only":true,"fast_match_type":true}],"evaluate-biz-support":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5538"],"file_suffix_pattern":"/data0/www/applogs/trace/httpStandard.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5538"],"file_suffix_pattern":"/data0/www/applogs/trace/std_console.log","log_only":true,"fast_match_type":true}],"fnrd-bank-operation-service":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5537"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"fuxi-asset-customer-server":[{"cluster":"test-mars-04","topic":["topic-cloud-test-4953"],"file_suffix_pattern":"/data0/www/applogs/????-??-??/infoLog.log\n/data0/www/applogs/????-??-??/error.log","log_only":true,"fast_match_type":true}],"fuxi-huaqiao-server":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5457"],"file_suffix_pattern":"/data0/www/applogs/????-??-??/infoLog.log","log_only":true,"fast_match_type":true}],"haofang":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5348"],"file_suffix_pattern":"/data0/www/applogs/app-center-haofang.ttb.test.ke.com/console.log","log_only":true,"fast_match_type":true}],"hdic-cheetah":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5323"],"file_suffix_pattern":"/data0/www/applogs/all.log","log_only":true,"fast_match_type":true}],"heart-select":null,"httpgo":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5388"],"file_suffix_pattern":"/data0/www/applogs/httpgo.log","log_only":true,"fast_match_type":true}],"httpjava":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5379"],"file_suffix_pattern":"/data0/www/applogs/httpjava.log","log_only":true,"fast_match_type":true}],"httpsvcgo":null,"huiju-aigc-platform":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5283"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"huiju-chat-channel":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5511"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"huiju-chat-manage":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5512"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"huiju-chat-workbench":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5509"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"huiju-cloudkeeper-core":[{"cluster":"test-mars-04","topic":["topic-cloud-test-4999"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"huiju-cloudkeeper-rule":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5031"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"huiju-cloudkeeper-zuyue":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5397"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"huiju-house-cloudkeeper":[{"cluster":"test-mars-04","topic":["topic-cloud-test-4996"],"file_suffix_pattern":"/data0/www/applogs/dubbo.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-4996"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"huiju-house-cloudkeeper-job":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5360"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"huiju-house-octopus":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5280"],"file_suffix_pattern":"/data0/www/applogs/test-api-huiju-house-octopus/all.log","log_only":true,"fast_match_type":true}],"huiju-private-domain-lease":[{"cluster":"test-mars-04","topic":["topic-cloud-test-4791"],"file_suffix_pattern":"/data0/www/applogs/dubbo/dubbo-consumer.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-4791"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"huiju-puzu-cloudkeeper":[{"cluster":"test-mars-04","topic":["topic-cloud-test-4710"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"huiju-quality-core":null,"hw-manage":null,"infra-allblue":[{"cluster":"test-mars","topic":["topic-cloud-preview-79"],"file_suffix_pattern":"/data0/www/applogs/246.log","log_only":true,"fast_match_type":true},{"cluster":"eee","topic":["qqq"],"file_suffix_pattern":"/data0/www/applogs/247-1.log","log_only":true,"fast_match_type":true}],"infra-kegate":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5396"],"file_suffix_pattern":"/data0/www/applogs/gateway-access.log","log_only":true,"fast_match_type":true}],"infra-xiyi-freeform":null,"iot-auth-gateway":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5223"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"iot-ecology-gateway":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5427"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"iot-ecology-platform":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5434"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"iot-erp-core":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5619"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"iot-sms":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5221"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"jy-es":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5398"],"file_suffix_pattern":"/data0/www/applogs/app.error.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5398"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"jy-hub":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5000"],"file_suffix_pattern":"/data0/www/applogs/*.log","log_only":true,"fast_match_type":true}],"jy-nts":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5395"],"file_suffix_pattern":"/data0/www/applogs/nts-info-????-??-??.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5395"],"file_suffix_pattern":"/data0/www/applogs/sql-????-??-??.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5395"],"file_suffix_pattern":"/data0/www/applogs/nts-error-????-??-??.log","log_only":true,"fast_match_type":true}],"jy-oms":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5386"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"jy-order-core":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5385"],"file_suffix_pattern":"/data0/www/applogs/feign.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5385"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5385"],"file_suffix_pattern":"/data0/www/applogs/sql.log","log_only":true,"fast_match_type":true}],"jy-service-module":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5387"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"kcs-alert":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5005"],"file_suffix_pattern":"/data0/www/applogs/path1.log","log_only":true,"fast_match_type":true}],"kecv-homeinsight-app-general":null,"kelive-admin":[{"cluster":"test-mars-04","topic":["topic-cloud-test-4912"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"kms-agent":[{"cluster":"test-mars-02","topic":["sec-kms-agent-test-log"],"file_suffix_pattern":"/data0/www/applogs/agent.applog.??????????.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-02","topic":["sec-kms-agent-test-log"],"file_suffix_pattern":"/data0/www/logs/agent.accesslog.??????????.log","log_only":true,"fast_match_type":true}],"lease-property-manage":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5175"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"light-push-sdk-log":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5601"],"file_suffix_pattern":"/data0/www/applogs/sdk.log","log_only":true,"fast_match_type":true}],"light-push-server":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5327"],"file_suffix_pattern":"/data0/www/applogs/sdk.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5327"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"live-business-adapter":[{"cluster":"test-mars-04","topic":["topic-cloud-test-4913"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"live-data":[{"cluster":"test-mars-04","topic":["topic-cloud-test-4914"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"live-heartbeat":[{"cluster":"test-mars-04","topic":["topic-cloud-test-4895"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"live-house":[{"cluster":"test-mars-04","topic":["topic-cloud-test-4894"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"live-media":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5064"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"livein-manager-b":null,"mls-polar-bear":null,"newh-anchang":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5430"],"file_suffix_pattern":"/data0/www/applogs/newhouse_anchang_app_????????.log","log_only":true,"fast_match_type":true}],"newh-quark-hydra":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5238"],"file_suffix_pattern":"/data0/www/applogs/app.info.log","log_only":true,"fast_match_type":true}],"oauth-server":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5074"],"file_suffix_pattern":"/data0/www/applogs/accesslog.log","log_only":true,"fast_match_type":true}],"openapi-document-parse":null,"order-api":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5479"],"file_suffix_pattern":"/data0/www/applogs/????-??-??/orderservice-????-??-??-??.log","log_only":true,"fast_match_type":true}],"pay":null,"pay-account":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5481"],"file_suffix_pattern":"/data0/www/applogs/????-??-??/all.log","log_only":true,"fast_match_type":true}],"pt-aigc-api":null,"pt-aigc-manager":[{"cluster":"test-mars-04","topic":["topic-cloud-test-4934"],"file_suffix_pattern":"/data0/www/applogs/app_error-????????.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-4934"],"file_suffix_pattern":"/data0/www/applogs/app_info-????????.log","log_only":true,"fast_match_type":true}],"pt-material-ai":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5616"],"file_suffix_pattern":"/data0/www/applogs/reprint_service.log","log_only":true,"fast_match_type":true}],"qa-shapan-jiaoyu-shengdu":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5149"],"file_suffix_pattern":"/data0/www/applogs/error.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5149"],"file_suffix_pattern":"/data0/www/applogs/virtual_city.log","log_only":true,"fast_match_type":true}],"quality-api-server":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5381"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"quark-home":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5002"],"file_suffix_pattern":"/data0/www/applogs/*.log","log_only":true,"fast_match_type":true}],"quark-wisdom":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5142"],"file_suffix_pattern":"/data0/www/applogs/app.info.log","log_only":true,"fast_match_type":true}],"rent-house-dict-collect":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5474"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"rent-self-service-view-house":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5432"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"risk-user-strategy-center":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5608"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"robot-dispatch":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5340"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"robot-service":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5349"],"file_suffix_pattern":"/data0/www/applogs/app_error-????????.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5349"],"file_suffix_pattern":"/data0/www/applogs/app_info-????????.log","log_only":true,"fast_match_type":true}],"sandtable":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5135"],"file_suffix_pattern":"/data0/www/applogs/virtual_city.log","log_only":true,"fast_match_type":true}],"search-data-build-service":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5256"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"search-simulation":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5468"],"file_suffix_pattern":"/data0/www/applogs/??????????/traffic.log","log_only":true,"fast_match_type":true}],"search-zuul":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5444"],"file_suffix_pattern":"/data0/www/applogs/??????????/traffic.log","log_only":true,"fast_match_type":true}],"sec-agent":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5547"],"file_suffix_pattern":"/data0/www/logs/agent.accesslog.??????????.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5547"],"file_suffix_pattern":"/data0/www/applogs/agent.applog.??????????.log","log_only":true,"fast_match_type":true}],"sec-ai":null,"sec-appsen":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5108"],"file_suffix_pattern":"/data0/www/applogs/sec-appsen.applog.??????????.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5108"],"file_suffix_pattern":"/data0/www/logs/sec-appsen.accesslog.??????????.log","log_only":true,"fast_match_type":true}],"sec-data-risk-control":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5439"],"file_suffix_pattern":"/data0/www/applogs/app-??????????.log","log_only":true,"fast_match_type":true}],"sec-ds-aigc":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5136"],"file_suffix_pattern":"/data0/www/applogs/dsaigc.sec.ke.com/test-sec-ds-aigc.access-??????????.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5136"],"file_suffix_pattern":"/data0/www/applogs/dsaigc.sec.ke.com/test-sec-ds-aigc.audit-??????????.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5136"],"file_suffix_pattern":"/data0/www/applogs/dsaigc.sec.ke.com/test-sec-ds-aigc.app-??????????.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5136"],"file_suffix_pattern":"/data0/www/applogs/dsaigc.sec.ke.com/test-sec-ds-aigc.wechat-app-??????????.log","log_only":true,"fast_match_type":true}],"sec-hip":null,"sec-kms":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5527"],"file_suffix_pattern":"/data0/www/logs/kms.access.????????.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5527"],"file_suffix_pattern":"/data0/www/applogs/kms.app.????????.log","log_only":true,"fast_match_type":true}],"sec-manager-moirai":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5168"],"file_suffix_pattern":"/data0/www/logs/access.????????.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5168"],"file_suffix_pattern":"/data0/www/applogs/app.????????.log","log_only":true,"fast_match_type":true}],"security-homegpt":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5001"],"file_suffix_pattern":"/data0/www/applogs/request_response.log","log_only":true,"fast_match_type":true}],"sign-trade-risk":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5590"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"small-b-msyk-api":null,"small-b-msyk-api-cron":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5407"],"file_suffix_pattern":"/data0/www/applogs/app_info-??????????.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5407"],"file_suffix_pattern":"/data0/www/applogs/app_error-??????????.log","log_only":true,"fast_match_type":true}],"spider-stability-tool":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5414"],"file_suffix_pattern":"/data0/www/applogs/error.log","log_only":true,"fast_match_type":true},{"cluster":"test-mars-04","topic":["topic-cloud-test-5414"],"file_suffix_pattern":"/data0/www/applogs/access.log","log_only":true,"fast_match_type":true}],"store-manage":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5174"],"file_suffix_pattern":"/data0/www/applogs/path1.log","log_only":true,"fast_match_type":true}],"trace-transfer":null,"trusteeship-manager-workbench":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5206"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"tuoguan-manage":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5207"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"uc-facade-server":null,"uc-platform-batch":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5162"],"file_suffix_pattern":"/data0/www/applogs/test3-uc-platform/uc-platform-batch.info.????-??-??.log","log_only":true,"fast_match_type":true}],"ui-automation-copilot":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5585"],"file_suffix_pattern":"/data0/www/applogs/celery_worker.log","log_only":true,"fast_match_type":true}],"user-profile-reco":null,"utopia-ai-assistant-plugin":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5399"],"file_suffix_pattern":"/data0/www/applogs/????????.log","log_only":true,"fast_match_type":true}],"wekehome-wx-manager":null,"xinfang-a-xinfangtuipan":null,"zulin-home-lease-performance":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5545"],"file_suffix_pattern":"/data0/www/applogs/test.api.trusteeship.contract.lianjia.com/???.log,/data0/www/applogs/test.api.trusteeship.contract.lianjia.com/??????.log,/data0/www/applogs/test.api.trusteeship.contract.lianjia.com/??????.log","log_only":true,"fast_match_type":true}],"zulin-home-trusteeship-house":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5138"],"file_suffix_pattern":"/data0/www/applogs/test.api.trusteeship.house.lianjia.com/all.log","log_only":true,"fast_match_type":true}],"zulin-i-zf-house-api":null,"zulin-iot-device-adaptor":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5219"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}],"zulin-iot-platform":[{"cluster":"test-mars-04","topic":["topic-cloud-test-5218"],"file_suffix_pattern":"/data0/www/applogs/app.log","log_only":true,"fast_match_type":true}]}}
