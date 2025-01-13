@@ -1,14 +1,16 @@
 [SERVICE]
+    Flush     1
     Log_Level info
 
 [INPUT]
     NAME   dummy
-    Dummy  {"error": "error_message", "date": "2025年1月13日"}
+    Dummy  {"tool": "fluent", "sub": {"s1": {"s2": "bit"}}}
     Tag    test_tag
+
 [FILTER]
     Name          rewrite_tag
     Match         test_tag
-    Rule          $error error_message  from.$TAG false
+    Rule          $tool fluent  from.$TAG.new.$tool.$sub['s1']['s2'].out false
     Emitter_Name  re_emitted
 
 [OUTPUT]

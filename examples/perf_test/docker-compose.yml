@@ -6,7 +6,7 @@ services:
     image: ${FB_BASELINE_IMAGE}
     volumes:
       - log-volume:/logs:ro
-      - ./fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf:ro
+      - ./fluent-bit.conf.bak:/fluent-bit/etc/fluent-bit.conf.bak:ro
 
   fb-delta:
     build:
@@ -15,7 +15,7 @@ services:
       target: production
     volumes:
       - log-volume:/logs:ro
-      - ./fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf:ro
+      - ./fluent-bit.conf.bak:/fluent-bit/etc/fluent-bit.conf.bak:ro
     ports:
       - "2020:2020"
 
